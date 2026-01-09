@@ -1,0 +1,48 @@
+<div class="page">
+  <div class="card">
+    <div class="head">
+      <h1>Tareas</h1>
+      <a class="btn primary" routerLink="/tasks/new">+ Nueva</a>
+    </div>
+
+    <div *ngIf="error" class="alert">{{ error }}</div>
+    <div *ngIf="loading" class="muted">Cargando...</div>
+
+    <table class="table" *ngIf="!loading">
+      <thead>
+        <tr>
+          <th class="col-id">ID</th>
+          <th>Título</th>
+          <th>Notas</th>
+          <th class="col-done">Hecha</th>
+          <th class="col-actions">Acciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let t of tasks">
+          <td class="mono">{{ t.id }}</td>
+          <td>
+            <a [routerLink]="['/tasks', t.id]" class="link">{{ t.title }}</a>
+          </td>
+          <td class="muted">{{ notesPreview(t) }}</td>
+          <td>
+            <span class="pill" [class.ok]="t.done">{{ t.done ? 'Sí' : 'No' }}</span>
+          </td>
+          <td class="actions">
+            <a class="btn" [routerLink]="['/tasks', t.id, 'edit']">Editar</a>
+            <button class="btn danger"
+                    (click)="deleteTask(t)"
+                    [disabled]="deleting.has(t.id)">
+              {{ deleting.has(t.id) ? 'Borrando…' : 'Borrar' }}
+            </button>
+          </td>
+        </tr>
+
+        <tr *ngIf="tasks.length === 0">
+          <td colspan="5" class="empty">No hay tareas.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

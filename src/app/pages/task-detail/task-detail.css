@@ -1,0 +1,55 @@
+.page { padding: 24px; }
+.card {
+  max-width: 900px;
+  margin: 0 auto;
+  background: rgba(255,255,255,0.92);
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 14px;
+  padding: 22px;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+}
+h1 { margin: 0 0 16px; font-size: 34px; }
+
+.row { display: grid; grid-template-columns: 140px 1fr; gap: 12px; padding: 10px 0; border-bottom: 1px solid rgba(0,0,0,0.06); }
+.label { font-weight: 800; color: rgba(0,0,0,0.7); }
+.value { font-size: 16px; }
+.notes {
+  white-space: pre-wrap;
+  line-height: 1.35;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: rgba(17,24,39,0.04);
+  border: 1px solid rgba(0,0,0,0.08);
+}
+.mono { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; }
+
+.actions { display: flex; gap: 10px; margin-top: 18px; }
+
+.btn {
+  border: 1px solid rgba(0,0,0,0.18);
+  background: white;
+  border-radius: 10px;
+  padding: 10px 14px;
+  cursor: pointer;
+}
+.btn.danger { border-color: rgba(185,28,28,0.35); color: #b91c1c; }
+.btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.pill {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(0,0,0,0.06);
+  font-weight: 700;
+  font-size: 12px;
+}
+.pill.ok { background: rgba(16,185,129,0.16); }
+
+.alert {
+  background: #fee2e2;
+  border: 1px solid #fecaca;
+  padding: 10px 12px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+.muted { color: rgba(0,0,0,0.6); }

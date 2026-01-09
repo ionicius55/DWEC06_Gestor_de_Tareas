@@ -1,0 +1,40 @@
+<div class="page">
+  <div class="card">
+    <h1>Detalle de tarea</h1>
+
+    <div *ngIf="error" class="alert">{{ error }}</div>
+    <div *ngIf="loading" class="muted">Cargando...</div>
+
+    <ng-container *ngIf="!loading && task">
+      <div class="row">
+        <div class="label">ID</div>
+        <div class="mono">{{ task.id }}</div>
+      </div>
+
+      <div class="row">
+        <div class="label">Título</div>
+        <div class="value">{{ task.title }}</div>
+      </div>
+
+      <div class="row">
+        <div class="label">Notas</div>
+        <div class="notes" [class.muted]="!(task.notes && task.notes.trim())">
+          {{ (task.notes && task.notes.trim()) ? task.notes : '—' }}
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="label">Hecha</div>
+        <div class="value">
+          <span class="pill" [class.ok]="task.done">{{ task.done ? 'Sí' : 'No' }}</span>
+        </div>
+      </div>
+
+      <div class="actions">
+        <button class="btn" (click)="goBack()">Volver</button>
+        <button class="btn" (click)="goEdit()">Editar</button>
+        <button class="btn danger" (click)="delete()" [disabled]="loading">Borrar</button>
+      </div>
+    </ng-container>
+  </div>
+</div>
