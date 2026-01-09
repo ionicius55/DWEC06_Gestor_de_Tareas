@@ -7,7 +7,7 @@ import { Task } from '../models/task';
 @Injectable({ providedIn: 'root' })
 export class TasksService {
   // Ajusta SOLO esta URL si cambias de Beeceptor
-  private readonly baseUrl = 'https://dwec06tasksjon4.free.beeceptor.com/api/tasks';
+  private readonly baseUrl = 'https://dwec06tasksjon5.free.beeceptor.com/api/tasks';
 
   constructor(private http: HttpClient) {}
 
